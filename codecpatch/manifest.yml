@@ -1,6 +1,6 @@
 version: 1
 name: codecpatch
-description: "Patch synocodectool, by xbl3" #https://github.com/xbl3/synocodectool-patch
+description: "Patch synocodectool, by wirgen"  # https://github.com/wirgen/synocodectool-patch
 all:
   install-script: "install.sh"
   copy: "all"

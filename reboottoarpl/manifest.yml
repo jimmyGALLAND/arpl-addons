@@ -1,10 +1,10 @@
 version: 1
-name: misc
+name: reboottoarpl
 description: "Add a script to restart to arpl in the DSM scheduled task, making it easy to access arpl without a screen or keyboard."
-system: true
+# system: true
 all:
   install-script: "install.sh"
-  copy: ""
+  copy: all
 available-for:
   apollolake-4.4.59:
   apollolake-4.4.180:

@@ -49,6 +49,6 @@ elif [ "${1}" = "late" ]; then
   echo "[Install]"                                                              >>${DEST}
   echo "WantedBy=multi-user.target"                                             >>${DEST}
 
-  mkdir -p /tmpRoot/etc/systemd/system/multi-user.target.wants
+  mkdir -p /tmpRoot/lib/systemd/system/multi-user.target.wants
   ln -sf /lib/systemd/system/savelogs.service /tmpRoot/lib/systemd/system/multi-user.target.wants/savelogs.service
 fi

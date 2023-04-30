@@ -2,8 +2,12 @@
 
 if [ "${1}" = "modules" ]; then
   echo "Starting eudev daemon"
+  if [ "6" = "$(/bin/get_key_value /etc.defaults/VERSION majorversion)" ]; then
+    mv /lib/libblkid.so.1 /lib/libblkid.so.1.v7bak
+    mv /lib/libblkid.so.1.v6bak /lib/libblkid.so.1
+  fi
   [ -e /proc/sys/kernel/hotplug ] && printf '\000\000\000\000' > /proc/sys/kernel/hotplug
-  chmod 755 /sbin/udevd /usr/bin/kmod /usr/bin/udevadm /usr/lib/udev/*
+  chmod 755 /sbin/udevd /bin/kmod /bin/udevadm /lib/udev/*
   /sbin/udevd -d || { echo "FAIL"; exit 1; }
   echo "Triggering add events to udev"
   udevadm trigger --type=subsystems --action=add
@@ -31,6 +35,6 @@ elif [ "${1}" = "late" ]; then
   echo "[Install]"                                                              >>${DEST}
   echo "WantedBy=multi-user.target"                                             >>${DEST}
 
-  mkdir -p /tmpRoot/etc/systemd/system/multi-user.target.wants
-  ln -sf /lib/systemd/system/udevrules.service /tmpRoot/lib/systemd/system/multi-user.target.wants/udevrules.service
+  mkdir -vp /tmpRoot/lib/systemd/system/multi-user.target.wants
+  ln -vsf /lib/systemd/system/udevrules.service /tmpRoot/lib/systemd/system/multi-user.target.wants/udevrules.service
 fi

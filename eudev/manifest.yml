@@ -3,82 +3,33 @@ name: eudev
 system: true
 description: "eudev project + kmod modified"
 compile-script: compile.sh
+all:
+  install-script: "install.sh"
+  copy: "all"
 available-for:
   apollolake-4.4.59:
-    install-script: "install.sh"
-    copy: "v6"
   apollolake-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"
   apollolake-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"
   bromolow-3.10.105:
-    install-script: "install.sh"
-    copy: "v6"
   bromolow-3.10.108:
-    install-script: "install.sh"
-    copy: "v7"
-  broadwell-3.10.105:
-    install-script: "install.sh"
-    copy: "v6"
+  broadwell-4.4.105:
   broadwell-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"
   broadwell-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"
   broadwellnk-4.4.59:
-    install-script: "install.sh"
-    copy: "v6"
   broadwellnk-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"    
   broadwellnk-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"
   epyc7002-5.10.55:
-    install-script: "install.sh"
-    copy: "v7"   
   denverton-4.4.59:
-    install-script: "install.sh"
-    copy: "v6"   
   denverton-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"        
   denverton-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"
   geminilake-4.4.59:
-    install-script: "install.sh"
-    copy: "v6"
   geminilake-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"
   geminilake-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"
   purley-4.4.59:
-    install-script: "install.sh"
-    copy: "v6"   
   purley-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"
   purley-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"  
   r1000-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"   
   r1000-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"
   v1000-4.4.59:
-    install-script: "install.sh"
-    copy: "v6"
   v1000-4.4.180:
-    install-script: "install.sh"
-    copy: "v7"
   v1000-4.4.302:
-    install-script: "install.sh"
-    copy: "v7"

@@ -8,6 +8,7 @@ if [ "${1}" = "late" ]; then
   cp -v /etc/acpi/power.sh /tmpRoot/etc/acpi/power.sh
 
 if [ "6" = "$(/bin/get_key_value /etc.defaults/VERSION majorversion)" ]; then
+  mkdir -p /tmpRoot/etc/init
   DEST=/tmpRoot/etc/init/acpid.conf
   echo 'description "ACPI daemon"'            >${DEST}
   echo 'author "Virtualization Team"'        >>${DEST}

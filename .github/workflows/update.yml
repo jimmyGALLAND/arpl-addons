@@ -5,8 +5,7 @@
 # See /LICENSE for more information.
 #
 
-# # 注意：所有 include 组合会在 exclude 之后处理。 这允许你使用 include 添加回以前排除的组合。
-# version: [ 6.2, 7.1, 7.2 ]
+# version: [ 7.1, 7.2 ]
 # platform: [ apollolake, broadwell, broadwellnk, bromolow, denverton, epyc7002, geminilake, purley, r1000, v1000 ]
 # exclude:
 #   - version: 7.1
@@ -34,9 +33,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - version: 6.2 
-            platform: apollolake
-
           - version: 7.1 
             platform: apollolake
 
@@ -53,7 +49,7 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          sudo timedatectl set-timezone "Asia/Shanghai" 
+          sudo timedatectl set-timezone "Europe/Paris" 
           
       # - name: Cache EnvDeploy
       #   id: cache-env
@@ -74,8 +70,8 @@ jobs:
           git clone https://github.com/SynologyOpenSource/pkgscripts-ng.git ${ROOT_PATH}/pkgscripts-ng
           cd ${ROOT_PATH}/pkgscripts-ng
           # if version == 6.2, checkout 6.2.4
-          git checkout DSM${{ matrix.version }}`[ "${{ matrix.version }}" = "6.2" ] && echo ".4"`
-          sudo ./EnvDeploy -v ${{ matrix.version }}`[ "${{ matrix.version }}" = "6.2" ] && echo ".4"` -l  # Get Available platforms
+          git checkout DSM${{ matrix.version }}
+          sudo ./EnvDeploy -v ${{ matrix.version }} -l  # Get Available platforms
           sudo ./EnvDeploy -q -v ${{ matrix.version }} -p ${{ matrix.platform }}
 
           #ENV
@@ -196,7 +192,7 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          sudo timedatectl set-timezone "Asia/Shanghai" 
+          sudo timedatectl set-timezone "Europe/Paris" 
 
       - name: download to artifacts
         uses: actions/download-artifact@v3

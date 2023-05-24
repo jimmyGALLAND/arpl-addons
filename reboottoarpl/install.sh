@@ -3,7 +3,7 @@
 if [ "${1}" = "late" ]; then
 if [ -f /tmpRoot/usr/syno/etc/esynoscheduler/esynoscheduler.db ]; then
 echo "insert RebootToArpl task"
-sqlite3 /tmpRoot/usr/syno/etc/esynoscheduler/esynoscheduler.db <<EOF
+/tmpRoot/bin/sqlite3 /tmpRoot/usr/syno/etc/esynoscheduler/esynoscheduler.db <<EOF
 INSERT INTO task VALUES('RebootToArpl', '', 'shutdown', '', 0, 0, 0, 0, '', 0, '/usr/bin/arpl-reboot.sh "config"', 'script', '{}', '', '', '{}', '{}');
 EOF
 else

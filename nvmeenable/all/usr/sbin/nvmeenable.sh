@@ -45,7 +45,7 @@ EOF
 
 scriptversion(){
     cat <<EOF
-$script $scriptver - by AuxXxilium
+$script $scriptver
 
 See https://github.com/$repo
 EOF

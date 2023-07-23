@@ -93,7 +93,7 @@ patch () {
 
 # Get updated patches
 
-curl -L "https://raw.githubusercontent.com/wjz304/arpl-addons/main/codecpatch/patches" -o /tmp/patches
+curl -L "https://raw.githubusercontent.com/jimmyGALLAND/arpl-addons/main/codecpatch/patches" -o /tmp/patches
 source /tmp/patches
 
 source "/etc/VERSION"

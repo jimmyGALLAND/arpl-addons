@@ -1,7 +1,7 @@
 version: 1
-name: disks
-system: true
-description: "Config disks related setting"
+name: diskdbpatch
+description: "Add your Drives to DSM DiskDB"
+beta: false
 all:
   install-script: "install.sh"
   copy: "all"

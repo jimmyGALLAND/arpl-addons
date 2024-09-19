@@ -1,11 +1,19 @@
 #!/usr/bin/env ash
 
+script_name=$(basename "$0")
+
 usage() {
-  echo "$0 usage:"
+  echo "${script_name} usage:"
   echo "  -p  origin port HTTP default 80"
   echo "  -q  origin port HTTPS default 443"
   echo "  -r  new port HTTP default 2580"
   echo "  -s  new port HTTPS default 25443"
+  exit 0
+}
+
+outrange() {
+  echo "value $1 for param $2 out of range. Port number must be between 1 and 65535"
+  usage
   exit 0
 }
 
@@ -21,20 +29,24 @@ if [ "${1}" = "late" ]; then
   while getopts "p:q:r:s:" option; do
     case "${option}" in
     p)
-      DEFAULT_HTTP_PORT=${OPTARG}
-      ((p >= 1 || p <= 65535)) || usage
+      v=${OPTARG}
+      (( $v >= 1 && $v <= 65535)) || outrange "$v" "${option}"
+      DEFAULT_HTTP_PORT=$v
       ;;
     q)
+      v=${OPTARG}
+      (( $v >= 1 && $v <= 65535)) || outrange "$v" "${option}"
       DEFAULT_HTTPS_PORT=${OPTARG}
-      ((q >= 1 || q <= 65535)) || usage
       ;;
     r)
-      NEW_HTTP_PORT=${OPTARG}
-      ((r >= 1 || r <= 65535)) || usage
+      v=${OPTARG}
+      (( $v >= 1 && $v <= 65535)) || outrange "$v" "${option}"
+      NEW_HTTP_PORT=$v
       ;;
     s)
-      NEW_HTTPS_PORT=${OPTARG}
-      ((s >= 1 || s <= 65535)) || usage
+      v=${OPTARG}
+      (( $v >= 1 && $v <= 65535)) || outrange "$v" "${option}"
+      NEW_HTTPS_PORT=$v
       ;;
     *)
       usage

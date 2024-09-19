@@ -16,8 +16,8 @@ usage() {
 
 DEFAULT_HTTP_PORT=80
 DEFAULT_HTTPS_PORT=443
-NEW_HTTP_PORT=8025
-NEW_HTTPS_PORT=80443
+NEW_HTTP_PORT=2580
+NEW_HTTPS_PORT=44380
 
 while getopts ":p:q:r:s:" option; do
   case "${option}" in

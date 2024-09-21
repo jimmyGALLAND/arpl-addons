@@ -9,12 +9,12 @@ if [ "${1}" = "late" ]; then
   echo "[Unit]" >${DEST}
   echo "Description=Desallocates ports http(s)" >>${DEST}
   echo "Before=nginx.service" >>${DEST}
+  echo "BindsTo=nginx.service" >>${DEST}
   echo >>${DEST}
   echo "[Service]" >>${DEST}
   echo "Type=oneshot" >>${DEST}
   echo "RemainAfterExit=true" >>${DEST}
   echo "ExecStart=/usr/sbin/switchport.sh $1 $2" >>${DEST}
-  echo "ExecStartPost=/bin/systemctl try-restart nginx" >>${DEST}
   echo >>${DEST}
   echo "[Install]" >>${DEST}
   echo "WantedBy=nginx.service" >>${DEST}

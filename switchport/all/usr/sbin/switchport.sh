@@ -10,8 +10,9 @@ usage() {
   echo "${script_name} usage:"
   echo " ${script_name} HTTP_PORT HTTPS_PORT"
   echo " requires two parameters or none"
-  echo " with no parameter default HTTP_PORT 80 and HTTPS_PORT 443"
+  echo " with no parameter default HTTP_PORT 2580 and HTTPS_PORT 25443"
   echo " The port number must be between 1 and 65535"
+  echo " Be careful not to use a port used by another service or a forbidden port e.g. 445, 69!"
   exit 0
 }
 
@@ -51,8 +52,8 @@ fi
 if [ "$#" != "0" ] && [ "$#" != "2" ]; then usage; fi
 
 if [ "$#" -eq "0" ]; then
-  NEW_HTTP_PORT=${CURRENT_HTTP_PORT}
-  NEW_HTTPS_PORT=${CURRENT_HTTPS_PORT}
+  NEW_HTTP_PORT=2580
+  NEW_HTTPS_PORT=25443
 fi
 
 if [ "$#" -eq "2" ]; then

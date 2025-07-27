@@ -2,8 +2,10 @@
 
 if [ "${1}" = "late" ]; then
   echo "Fix qemu-system-x86_64"
+  mkdir -p /tmpRoot/usr/local/bin
   cp -vf /usr/bin/launcher.dat /tmpRoot/usr/local/bin/launcher.dat
   cp -vf /usr/bin/fix-qemu-layout.sh /tmpRoot/usr/local/bin/fix-qemu-layout.sh
+  chmod ug+x /tmpRoot/usr/local/bin/fix-qemu-layout.sh
 
   DEST="/tmpRoot/usr/lib/systemd/system/fix-qemu-layout.service"
   echo "[Unit]"                               >${DEST}

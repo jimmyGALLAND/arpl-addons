@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
 
-        child_argv[0] = "/var/packages/Virtualization/target/bin/qemu-system-x86_64";  // nom du programme exécuté
+        child_argv[0] = "/var/packages/Virtualization/target/bin/qemu-system-x86_64.bin";  // nom du programme exécuté
 		//child_argv[0] = "/bin/echo";
         child_argv[1] = "-k";
         child_argv[2] = "fr";
